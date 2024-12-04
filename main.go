@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
 	"slices"
 	"strconv"
@@ -54,7 +53,14 @@ func main() {
 
 	var d int
 	for i := 0; i < len(left); i++ {
-		d += int(math.Abs(float64(left[i] - right[i])))
+		n := left[i]
+		c := 0
+		for j := 0; j < len(right); j++ {
+			if right[j] == n {
+				c++
+			}
+		}
+		d += n * c
 	}
 
 	fmt.Println(d)
